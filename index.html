@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Engineering Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            transition: color 0.5s ease;
+        }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            transition: background 0.5s ease, border 0.5s ease;
+        }
+        .theme-dark .glass-panel {
+            background: rgba(10, 10, 10, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .theme-light .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .nav-underline {
+            position: relative;
+        }
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .nav-underline:hover::after {
+            width: 100%;
+        }
+        .outline-text {
+            -webkit-text-stroke: 1px currentColor;
+            color: transparent;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(128, 128, 128, 0.3);
+            border-radius: 4px;
+        }
+        
+        @keyframes sun-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-sun-rays {
+            animation: sun-rotate 40s linear infinite;
+        }
+        @keyframes sun-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .animate-sun-pulse {
+            animation: sun-pulse 4s ease-in-out infinite;
+        }
+        @keyframes drift {
+            from { transform: translateX(-10%); }
+            to { transform: translateX(10%); }
+        }
+        .animate-drift {
+            animation: drift 30s ease-in-out infinite alternate;
+        }
+        @keyframes cloud-travel {
+            from { transform: translateX(-600px); }
+            to { transform: translateX(120vw); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); filter: brightness(1); }
+            50% { opacity: 1; transform: scale(1.2); filter: brightness(1.5); }
+        }
+        .animate-twinkle {
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        .bg-transition {
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Scanline Animation */
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        .scanline {
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(191,87,0,0.05), transparent);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            pointer-events: none;
+            animation: scanline 12s linear infinite;
+        }
+        .scanline-dots {
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(rgba(191,87,0,0.03) 1px, transparent 0);
+            background-size: 4px 4px;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body class="selection:bg-[#BF5700] selection:text-white">
+    <div id="root"></div>
+</body>
+</html>
